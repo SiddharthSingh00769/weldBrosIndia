@@ -1,4 +1,3 @@
-import { ApplicationsGlimpse } from "@/components/sections/ApplicationsGlimpse";
 import { CapabilityStrip } from "@/components/sections/CapabilityStrip";
 import { CompanyIntro } from "@/components/sections/CompanyIntro";
 import { FinalCTA } from "@/components/sections/FinalCta";
@@ -14,7 +13,6 @@ export default function Home() {
       <CompanyIntro />
       <CapabilityStrip />
       <ManufacturingGlimpse />
-      <ApplicationsGlimpse />
       <WhyUs />
       <QualityGlimpse />
       <FinalCTA />

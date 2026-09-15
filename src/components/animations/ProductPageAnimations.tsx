@@ -26,13 +26,11 @@ export function ProductPageAnimations() {
       );
 
       if (heroItems.length > 0) {
-        // Explicitly establish the starting state.
         gsap.set(heroItems, {
           opacity: 0,
           y: 50,
         });
 
-        // Animate them into place.
         gsap.to(heroItems, {
           opacity: 1,
           y: 0,
@@ -47,43 +45,39 @@ export function ProductPageAnimations() {
       /*
        * ==========================================
        * PRODUCT CARDS
+       * Simple fade-up / lift animation
        * ==========================================
        */
 
       const productCards = gsap.utils.toArray<HTMLElement>(
         "[data-product-card]",
-        );
+      );
 
-        productCards.forEach((card, index) => {
-        const direction = index % 2 === 0 ? 1 : -1;
-
-        // Initial state
+      productCards.forEach((card) => {
         gsap.set(card, {
-            opacity: 1,
-            rotationY: direction * 360,
-            rotationX: 0,
-            scale: 0.96,
-            transformPerspective: 1200,
-            transformOrigin: "center center",
-            transformStyle: "preserve-3d",
+          opacity: 0,
+          y: 50,
+          scale: 0.985,
         });
 
         ScrollTrigger.create({
-            trigger: card,
-            start: "top 95%",
-            once: true,
+          trigger: card,
+          start: "top 92%",
+          once: true,
 
-            onEnter: () => {
+          onEnter: () => {
             gsap.to(card, {
-                rotationY: 0,
-                scale: 1,
-                duration: 1.8,
-                ease: "power2.out",
-                overwrite: true,
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.15,
+              ease: "power3.out",
+              overwrite: true,
+              clearProps: "transform,opacity",
             });
-            },
+          },
         });
-        });
+      });
 
       /*
        * ==========================================

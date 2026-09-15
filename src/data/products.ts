@@ -1,54 +1,74 @@
 export interface Product {
-  slug: string;
+  id: number;
   number: string;
   name: string;
-  shortDescription: string;
-  description: string;
+  range: string;
   image: string;
-  category: string;
-  featured?: boolean;
-  tags: string[];
+  shortDescription: string;
 }
 
 export const products: Product[] = [
   {
-    slug: "transformer-tanks",
+    id: 1,
     number: "01",
-    name: "Transformer Tanks",
+    name: "Power Transformer Tanks",
+    range: "1000 kVA–5000 kVA",
+    image: "/images/products/power-transformer-tank.jpg",
     shortDescription:
-      "Fabricated transformer tanks engineered around application requirements and customer specifications.",
-    description:
-      "Transformer tanks manufactured for power and industrial applications, with fabrication based on customer drawings, specifications and project requirements.",
-    image: "/images/products/transformer-tank.jpg",
-    category: "Transformer Components",
-    featured: true,
-    tags: ["500 kVA–5 MVA", "Custom Fabrication", "Drawing Based"],
+      "Transformer tanks manufactured for power transformer applications across the 1000 kVA to 5000 kVA range.",
   },
-
   {
-    slug: "oltc-transformer-tanks",
+    id: 2,
     number: "02",
     name: "OLTC Transformer Tanks",
+    range: "1000 kVA–5000 kVA",
+    image: "/images/products/oltc.png",
     shortDescription:
-      "Specialized transformer tank fabrication for OLTC transformer applications.",
-    description:
-      "Application-specific tank fabrication for transformers incorporating on-load tap changer requirements.",
-    image: "/images/products/oltc-transformer-tank.jpg",
-    category: "Transformer Components",
-    featured: true,
-    tags: ["OLTC", "Custom Fabrication", "Engineering"],
+      "Transformer tanks designed for OLTC transformer applications in the 1000 kVA to 5000 kVA range.",
   },
-
   {
-    slug: "transformer-components",
+    id: 3,
     number: "03",
-    name: "Transformer Components",
+    name: "Transformer Tanks Without Line",
+    range: "10 kVA–500 kVA",
+    image: "/images/products/transformer-tank-without-line.jpg",
     shortDescription:
-      "Fabricated components supporting transformer assembly and application requirements.",
-    description:
-      "Customer-specific fabricated components manufactured according to project drawings and technical requirements.",
-    image: "/images/products/transformer-components.jpg",
-    category: "Transformer Components",
-    tags: ["Fabrication", "Custom", "Engineering"],
+      "Transformer tanks for applications from 10 kVA to 500 kVA without line configuration.",
+  },
+  {
+    id: 4,
+    number: "04",
+    name: "Dry Transformer Tanks",
+    range: "10 kVA–2000 kVA",
+    image: "/images/products/dry-transformer-tank.jpg",
+    shortDescription:
+      "Fabricated tanks for dry transformer applications covering the 10 kVA to 2000 kVA range.",
+  },
+  {
+    id: 5,
+    number: "05",
+    name: "OLTC Tanks",
+    range: "10 kVA–2000 kVA",
+    image: "/images/products/oltc-tank.jpg",
+    shortDescription:
+      "Fabricated tanks for OLTC applications across the 10 kVA to 2000 kVA range.",
+  },
+  {
+    id: 6,
+    number: "06",
+    name: "HT Boxes",
+    range: "10 kVA–350 kVA",
+    image: "/images/products/ht-box.jpg",
+    shortDescription:
+      "HT boxes manufactured for transformer applications from 10 kVA to 350 kVA.",
+  },
+  {
+    id: 7,
+    number: "07",
+    name: "Meter Boxes",
+    range: "10 kVA–350 kVA",
+    image: "/images/products/meter-box.jpg",
+    shortDescription:
+      "Meter boxes manufactured for transformer applications from 10 kVA to 350 kVA.",
   },
 ];

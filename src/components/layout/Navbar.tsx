@@ -33,16 +33,16 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          aria-label="Weldbros India home"
+          aria-label="WBRS Industries home"
           className="shrink-0"
         >
           <Image
-            src="/images/brand/logo.svg"
-            alt="Weldbros India"
-            width={180}
-            height={48}
+            src="/images/brand/lastLogo.png"
+            alt="WBRS Industries"
+            width={725}
+            height={479}
             priority
-            className="h-10 w-auto sm:h-11"
+            className="h-16 w-auto sm:h-16 bg-transparent"
           />
         </Link>
 
@@ -60,7 +60,7 @@ export function Navbar() {
                 "transition-colors duration-300",
                 isDarkNavbar
                   ? "text-white/80 hover:text-white"
-                  : "text-[#1b2429]/80 hover:text-[#245a78]",
+                  : "text-[#101c2c]/80 hover:text-[#075a9c]",
               ].join(" ")}
             >
               {item.label}
@@ -75,8 +75,8 @@ export function Navbar() {
               "rounded-md px-5 text-sm font-medium",
               "transition-all duration-300",
               isDarkNavbar
-                ? "bg-white text-[#1b2429] hover:bg-[#eef0f0]"
-                : "bg-[#245a78] text-white hover:bg-[#1b2429]",
+                ? "bg-white text-[#101c2c] hover:bg-[#f7f8f9]"
+                : "bg-[#f05a18] text-white hover:bg-[#d94a12]",
             ].join(" ")}
           >
             Request a Quote
@@ -99,7 +99,7 @@ export function Navbar() {
                     "transition-all duration-300",
                     isDarkNavbar
                       ? "border-white/25 bg-black/10 text-white hover:bg-white/10"
-                      : "border-[#cbd0d1] bg-white/20 text-[#1b2429] hover:bg-black/5",
+                      : "border-[#cbd0d1] bg-white/20 text-[#101c2c] hover:bg-black/5",
                   ].join(" ")}
                 />
               }
@@ -119,15 +119,15 @@ export function Navbar() {
               <div className="px-6 pb-5 pt-6 sm:px-7">
                 <Link
                   href="/"
-                  aria-label="Weldbros India home"
+                  aria-label="WBRS Industries home"
                   className="inline-flex"
                 >
                   <Image
-                    src="/images/brand/logo.svg"
-                    alt="Weldbros India"
-                    width={180}
-                    height={48}
-                    className="h-14 w-auto"
+                    src="/images/brand/newLogo.png"
+                    alt="WBRS Industries"
+                    width={625}
+                    height={379}
+                    className="h-16 w-auto"
                   />
                 </Link>
               </div>
@@ -152,7 +152,7 @@ export function Navbar() {
               <div className="px-6 pt-8 sm:px-7">
                 <Link
                   href="/request-quote"
-                  className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors duration-300 hover:bg-primary/90"
+                  className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#f05a18] px-5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#d94a12]"
                 >
                   Request a Quote
 

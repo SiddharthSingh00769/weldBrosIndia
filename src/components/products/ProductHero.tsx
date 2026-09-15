@@ -110,7 +110,7 @@ export function ProductsHero() {
               <button
                 type="button"
                 onClick={scrollToProducts}
-                className="group inline-flex h-13 items-center justify-center gap-2 bg-[#f7f7f5] px-6 text-sm font-medium text-[#1b2429] transition-colors duration-300 hover:bg-white"
+                className="cursor-pointer group inline-flex h-13 items-center justify-center gap-2 bg-[#f7f7f5] px-6 text-sm font-medium text-[#1b2429] transition-colors duration-300 hover:bg-white"
               >
                 Explore Products
 

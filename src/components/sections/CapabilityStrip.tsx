@@ -27,7 +27,7 @@ const capabilities = [
 
 export function CapabilityStrip() {
   return (
-    <section className="relative overflow-hidden bg-[#1b2429] text-[#f7f7f5]">
+    <section className="relative overflow-hidden bg-[#101c2c] text-white">
       {/* Subtle technical grid */}
       <div
         aria-hidden="true"
@@ -45,11 +45,17 @@ export function CapabilityStrip() {
         />
       </div>
 
+      {/* Subtle brand-blue wash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-0 h-full w-[35%] bg-[#075a9c]/[0.06]"
+      />
+
       <Container className="relative z-10">
         {/* Section intro */}
         <div className="flex flex-col justify-between gap-6 border-b border-white/10 py-8 text-center md:flex-row md:items-end md:py-12 md:text-left">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7fa9bc]">
+            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7bafcf]">
               Capability & Trust
             </p>
 
@@ -58,8 +64,8 @@ export function CapabilityStrip() {
             </h2>
           </div>
 
-          <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.15em] text-[#8e999d] md:justify-start">
-            <span className="h-px w-8 bg-[#6f8791]" />
+          <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.15em] text-white/45 md:justify-start">
+            <span className="h-px w-8 bg-[#7b858d]" />
             <span>Engineering Capability</span>
           </div>
         </div>
@@ -76,27 +82,27 @@ export function CapabilityStrip() {
                 index !== 0 ? "lg:border-l" : "",
               ].join(" ")}
             >
-                <div>
+              <div className="relative z-10">
                 {/* Number */}
-                <p className="font-heading text-xs font-medium tracking-[0.15em] text-[#69777c]">
+                <p className="font-heading text-xs font-medium tracking-[0.15em] text-white/30">
                   {item.number}
                 </p>
 
                 {/* Value */}
-                <p className="mt-7 font-heading text-[clamp(1.45rem,2.4vw,2rem)] font-semibold leading-none tracking-[-0.025em] text-[#f2f3f1]">
+                <p className="mt-7 font-heading text-[clamp(1.45rem,2.4vw,2rem)] font-semibold leading-none tracking-[-0.025em] text-white">
                   {item.value}
                 </p>
 
                 {/* Label */}
-                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#8e999d]">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
                   {item.label}
                 </p>
 
                 {/* Bottom indicator */}
                 <div className="mt-6 flex items-center justify-center gap-2 lg:mt-8 lg:justify-start">
-                  <span className="h-px w-7 bg-[#5e7d8b] transition-all duration-500 group-hover:w-12 group-hover:bg-[#9cc5d8]" />
+                  <span className="h-px w-7 bg-[#075a9c] transition-all duration-500 group-hover:w-12 group-hover:bg-[#f05a18]" />
 
-                  <ArrowUpRight className="size-3 text-[#6f858e] transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#9cc5d8]" />
+                  <ArrowUpRight className="size-3 text-white/40 transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#f05a18]" />
                 </div>
               </div>
 
