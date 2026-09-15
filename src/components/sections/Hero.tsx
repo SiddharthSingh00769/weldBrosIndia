@@ -2,103 +2,65 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { Container } from "../layout/Container";
-import { TransformerHeroAnimation } from "../animations/TransformerHeroAnimation";
+import { ElectricityAnimation } from "../animations/ElectricityAnimation";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f7f8f9] pt-24 pb-16 sm:pt-28 sm:pb-20 xl:min-h-[760px] xl:pt-28 xl:pb-24">
+    <section className="relative isolate flex min-h-[680px] items-center overflow-hidden bg-[#07111d] py-24 sm:min-h-[760px] sm:py-28">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[50%] bg-[#eef1f3] xl:block"
+        className="absolute inset-0 -z-20 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/transformer-hero-cinematic.png')" }}
       />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_44%,rgba(7,22,35,0.2),rgba(3,10,18,0.82)_78%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-[#06111c]/55 via-transparent to-[#06111c]/85" />
+      <ElectricityAnimation />
 
-      <Container className="relative z-10">
-        <div className="grid items-center gap-12 xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:gap-54">
-          {/* Content */}
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#075a9c]">
-              Transformer Tank Manufacturing
-            </p>
+      <Container className="relative z-10 w-full">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#7dd3fc]">
+            Transformer Tank Manufacturing
+          </p>
+          <h1 className="mt-5 font-heading text-[clamp(2.6rem,7vw,5.75rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white drop-shadow-2xl">
+            Transformer Tanks
+            <br />
+            <span className="text-white/90">Built to Your</span>
+            <br />
+            Specifications.
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-7 text-slate-200/90 md:text-lg md:leading-8">
+            Complete transformer tanks and related components for 500 kVA to 5 MVA applications, with specialized expertise in OLTC transformer tanks.
+          </p>
 
-            <h1 className="mt-4 max-w-[720px] font-heading text-[clamp(2rem,4.75vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-[#17212b]">
-              Transformer Tanks
-              <br />
-              Built to Your
-              <br />
-              Specifications.
-            </h1>
-
-            <p className="mt-6 max-w-xl text-base leading-7 text-[#5f6b75] md:text-lg md:leading-8">
-              Complete transformer tanks and related components for
-              500 kVA to 5 MVA applications, with specialized expertise
-              in OLTC transformer tanks.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/request-quote"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#f05a18] px-5 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#d94a12] sm:h-14 sm:px-6 sm:text-base"
-              >
-                Request a Quote
-                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-
-              <Link
-                href="/products"
-                className="group inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#dde2e6] bg-transparent px-5 text-sm font-medium text-[#17212b] transition-colors duration-300 hover:border-[#075a9c] hover:bg-[#eef1f3] sm:h-14 sm:px-6 sm:text-base"
-              >
-                Explore Products
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-
-            <div className="mt-9 grid grid-cols-3 border-t border-[#dde2e6] pt-5 sm:mt-11 sm:pt-6">
-              {/* Manufacturing Range */}
-              <div className="min-w-0 pr-3 sm:pr-5">
-                <p className="font-heading text-sm font-semibold leading-tight tracking-[-0.02em] text-[#17212b] sm:text-lg">
-                  500 kVA–5 MVA
-                </p>
-
-                <p className="mt-1.5 max-w-[90px] text-[9px] font-medium uppercase leading-4 tracking-[0.08em] text-[#5f6b75] sm:max-w-none sm:text-xs sm:tracking-[0.12em]">
-                  Manufacturing Range
-                </p>
-              </div>
-
-              {/* OLTC */}
-              <div className="min-w-0 border-l border-[#dde2e6] px-3 sm:px-5">
-                <p className="font-heading text-sm font-semibold leading-tight tracking-[-0.02em] text-[#17212b] sm:text-lg">
-                  OLTC
-                </p>
-
-                <p className="mt-1.5 max-w-[90px] text-[9px] font-medium uppercase leading-4 tracking-[0.08em] text-[#5f6b75] sm:max-w-none sm:text-xs sm:tracking-[0.12em]">
-                  Key Specialization
-                </p>
-              </div>
-
-              {/* Location */}
-              <div className="min-w-0 border-l border-[#dde2e6] pl-3 sm:pl-5">
-                <p className="font-heading text-sm font-semibold leading-tight tracking-[-0.02em] text-[#17212b] sm:text-lg">
-                  Jaipur
-                </p>
-
-                <p className="mt-1.5 max-w-[90px] text-[9px] font-medium uppercase leading-4 tracking-[0.08em] text-[#5f6b75] sm:max-w-none sm:text-xs sm:tracking-[0.12em]">
-                  Rajasthan, India
-                </p>
-              </div>
-            </div>
+          <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+            <Link href="/request-quote" className="group inline-flex h-13 items-center justify-center gap-2 rounded-md bg-[#f05a18] px-6 text-sm font-medium text-white shadow-[0_0_28px_rgba(240,90,24,0.28)] transition-colors duration-300 hover:bg-[#ff6b27] sm:text-base">
+              Request a Quote
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <Link href="/products" className="group inline-flex h-13 items-center justify-center gap-2 rounded-md border border-white/35 bg-white/10 px-6 text-sm font-medium text-white backdrop-blur-sm transition-colors duration-300 hover:border-white/60 hover:bg-white/20 sm:text-base">
+              Explore Products
+              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
 
-          {/* Animated engineering visual */}
-          <div className="relative w-full">
-            <TransformerHeroAnimation />
-
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-5 -right-5 hidden size-24 border-b border-r border-[#7b858d] xl:block"
-            />
+          <div className="mt-12 grid w-full max-w-xl grid-cols-3 border-t border-white/20 pt-5 text-left sm:mt-16 sm:pt-6">
+            <div className="min-w-0 pr-3 sm:pr-5">
+              <p className="font-heading text-sm font-semibold text-white sm:text-lg">500 kVA–5 MVA</p>
+              <p className="mt-1.5 text-[9px] font-medium uppercase leading-4 tracking-[0.1em] text-slate-300 sm:text-xs">Manufacturing Range</p>
+            </div>
+            <div className="min-w-0 border-l border-white/20 px-3 sm:px-5">
+              <p className="font-heading text-sm font-semibold text-white sm:text-lg">OLTC</p>
+              <p className="mt-1.5 text-[9px] font-medium uppercase leading-4 tracking-[0.1em] text-slate-300 sm:text-xs">Key Specialization</p>
+            </div>
+            <div className="min-w-0 border-l border-white/20 pl-3 sm:pl-5">
+              <p className="font-heading text-sm font-semibold text-white sm:text-lg">Jaipur</p>
+              <p className="mt-1.5 text-[9px] font-medium uppercase leading-4 tracking-[0.1em] text-slate-300 sm:text-xs">Rajasthan, India</p>
+            </div>
           </div>
         </div>
       </Container>
     </section>
   );
 }
+
+export default Hero;
