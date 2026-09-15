@@ -2,24 +2,26 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { Container } from "../layout/Container";
-import { ElectricityAnimation } from "../animations/ElectricityAnimation";
 
 export function Hero() {
   return (
-    <section className="group relative isolate flex min-h-[680px] items-end overflow-hidden bg-[#07111d] py-24 sm:min-h-[760px] sm:py-28">
-      <div
+<section className="relative isolate flex min-h-[680px] items-center justify-center overflow-hidden bg-[#07111d] py-24 sm:min-h-[760px] sm:py-28">
+      <video
         aria-hidden="true"
-        className="absolute inset-[-3%] -z-20 bg-cover bg-[62%_center] transition-transform duration-[14000ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[hero-drift_18s_ease-in-out_infinite_alternate]"
-        style={{ backgroundImage: "url('/images/transformer-hero-cinematic.png')" }}
-      />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_44%,rgba(7,22,35,0.2),rgba(3,10,18,0.82)_78%)]" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#06111c]/92 via-[#06111c]/48 to-[#06111c]/10" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-[#06111c]/30 via-transparent to-[#06111c]/90" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30 mix-blend-screen motion-safe:animate-[light-sweep_9s_ease-in-out_infinite]" style={{ background: "linear-gradient(112deg, transparent 32%, rgba(125,211,252,0.18) 42%, transparent 52%)" }} />
-      <ElectricityAnimation />
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/images/transformer-hero-cinematic.png"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      >
+        <source src="/videos/hero-transformer.mp4" type="video/mp4" />
+      </video>
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/20" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/35" />
 
       <Container className="relative z-10 w-full">
-        <div className="flex max-w-xl flex-col items-start text-left pb-2 sm:pb-4">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#7dd3fc]">
             Transformer Tank Manufacturing
           </p>
@@ -45,7 +47,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="mt-12 grid w-full max-w-xl grid-cols-3 border-t border-white/20 pt-5 text-left sm:mt-16 sm:pt-6">
+          <div className="mt-12 grid w-full max-w-xl grid-cols-3 border-t border-white/20 pt-5 text-center sm:mt-16 sm:pt-6">
             <div className="min-w-0 pr-3 sm:pr-5">
               <p className="font-heading text-sm font-semibold text-white sm:text-lg">500 kVA–5 MVA</p>
               <p className="mt-1.5 text-[9px] font-medium uppercase leading-4 tracking-[0.1em] text-slate-300 sm:text-xs">Manufacturing Range</p>
