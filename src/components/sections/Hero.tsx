@@ -6,18 +6,20 @@ import { ElectricityAnimation } from "../animations/ElectricityAnimation";
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[680px] items-center overflow-hidden bg-[#07111d] py-24 sm:min-h-[760px] sm:py-28">
+    <section className="group relative isolate flex min-h-[680px] items-end overflow-hidden bg-[#07111d] py-24 sm:min-h-[760px] sm:py-28">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-cover bg-center"
+        className="absolute inset-[-3%] -z-20 bg-cover bg-[62%_center] transition-transform duration-[14000ms] ease-out group-hover:scale-[1.04] motion-safe:animate-[hero-drift_18s_ease-in-out_infinite_alternate]"
         style={{ backgroundImage: "url('/images/transformer-hero-cinematic.png')" }}
       />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_44%,rgba(7,22,35,0.2),rgba(3,10,18,0.82)_78%)]" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-[#06111c]/55 via-transparent to-[#06111c]/85" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#06111c]/92 via-[#06111c]/48 to-[#06111c]/10" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-[#06111c]/30 via-transparent to-[#06111c]/90" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30 mix-blend-screen motion-safe:animate-[light-sweep_9s_ease-in-out_infinite]" style={{ background: "linear-gradient(112deg, transparent 32%, rgba(125,211,252,0.18) 42%, transparent 52%)" }} />
       <ElectricityAnimation />
 
       <Container className="relative z-10 w-full">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="flex max-w-xl flex-col items-start text-left pb-2 sm:pb-4">
           <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#7dd3fc]">
             Transformer Tank Manufacturing
           </p>

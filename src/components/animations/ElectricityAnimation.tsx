@@ -33,14 +33,14 @@ export function ElectricityAnimation() {
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
-        <g filter="url(#electric-glow)" fill="none" stroke="#7dd3fc" strokeLinecap="round">
-          <path className="electric-arc" strokeWidth="2" d="M130 610 L245 520 L210 445 L355 375 L320 280 L470 215" />
-          <path className="electric-arc" strokeWidth="1.5" d="M1300 150 L1185 232 L1230 310 L1080 365 L1125 470 L965 555" />
-          <path className="electric-arc" strokeWidth="2" d="M360 110 L470 178 L445 250 L575 310" />
-          <path className="electric-arc" strokeWidth="1.5" d="M1090 690 L1010 610 L1045 535 L910 470" />
+        <g filter="url(#electric-glow)" fill="none" strokeLinecap="round">
+          <path className="electric-arc" stroke="#7dd3fc" strokeWidth="2.5" d="M80 260 C260 210 330 330 490 280 S740 230 930 320 S1180 470 1430 390" />
+          <path className="electric-arc" stroke="#fbbf24" strokeWidth="2" d="M500 610 C650 520 715 430 825 470 S1040 570 1190 430 S1330 300 1480 330" />
+          <path className="electric-arc" stroke="#38bdf8" strokeWidth="1.5" d="M-40 500 C170 420 270 500 430 445 S700 370 890 410 S1200 300 1500 220" />
+          <path className="electric-arc" stroke="#fb923c" strokeWidth="1.5" d="M760 760 C820 650 910 620 980 520 S1120 390 1280 365 S1410 260 1520 170" />
         </g>
         <g className="electric-glow" fill="#bae6fd">
-          <circle cx="470" cy="215" r="3" /><circle cx="1300" cy="150" r="3" /><circle cx="575" cy="310" r="2.5" /><circle cx="910" cy="470" r="2.5" />
+          <circle cx="490" cy="280" r="3" /><circle cx="930" cy="320" r="4" /><circle cx="1190" cy="430" r="3" /><circle cx="1280" cy="365" r="3" />
         </g>
       </svg>
     </div>
