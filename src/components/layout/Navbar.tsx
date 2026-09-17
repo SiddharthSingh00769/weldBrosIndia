@@ -42,7 +42,7 @@ export function Navbar() {
             width={725}
             height={479}
             priority
-            className="h-16 w-auto sm:h-16 bg-transparent"
+            className="h-20 w-auto bg-transparent sm:h-20 lg:h-22"
           />
         </Link>
 
@@ -55,13 +55,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={[
-                "relative py-2 text-sm font-medium",
-                "transition-colors duration-300",
-                isDarkNavbar
-                  ? "text-white/80 hover:text-white"
-                  : "text-[#101c2c]/80 hover:text-[#075a9c]",
-              ].join(" ")}
+              className="relative py-2 text-sm font-medium text-white/85 transition-colors duration-300 hover:text-white"
             >
               {item.label}
             </Link>
@@ -70,14 +64,7 @@ export function Navbar() {
           {/* Request Quote */}
           <Link
             href="/request-quote"
-            className={[
-              "group inline-flex h-11 items-center justify-center gap-2",
-              "rounded-md px-5 text-sm font-medium",
-              "transition-all duration-300",
-              isDarkNavbar
-                ? "bg-white text-[#101c2c] hover:bg-[#f7f8f9]"
-                : "bg-[#f05a18] text-white hover:bg-[#d94a12]",
-            ].join(" ")}
+            className="group inline-flex h-11 items-center justify-center gap-2 rounded-md bg-[#f05a18] px-5 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#d94a12]"
           >
             Request a Quote
 
@@ -93,14 +80,7 @@ export function Navbar() {
                 <button
                   type="button"
                   aria-label="Open navigation menu"
-                  className={[
-                    "inline-flex size-10 items-center justify-center",
-                    "rounded-md border backdrop-blur-md",
-                    "transition-all duration-300",
-                    isDarkNavbar
-                      ? "border-white/25 bg-black/10 text-white hover:bg-white/10"
-                      : "border-[#cbd0d1] bg-white/20 text-[#101c2c] hover:bg-black/5",
-                  ].join(" ")}
+                  className="inline-flex size-10 items-center justify-center rounded-md border border-white/25 bg-black/10 text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10"
                 />
               }
             >
@@ -123,10 +103,10 @@ export function Navbar() {
                   className="inline-flex"
                 >
                   <Image
-                    src="/images/brand/newLogo.png"
+                    src="/images/brand/lastLogo.png"
                     alt="WBRS Industries"
-                    width={625}
-                    height={379}
+                    width={725}
+                    height={479}
                     className="h-16 w-auto"
                   />
                 </Link>
