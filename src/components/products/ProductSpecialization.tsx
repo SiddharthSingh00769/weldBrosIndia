@@ -8,7 +8,7 @@ export function ProductSpecialization() {
   return (
     <section className="relative overflow-hidden bg-[#1b2429] py-24 text-[#f7f7f5] md:py-32 lg:py-40">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
+        <div className="grid items-center gap-12 text-center lg:grid-cols-[1fr_1.15fr] lg:gap-20 lg:text-left">
           {/* Text */}
           <div className="order-2 lg:order-1">
             <p
@@ -27,7 +27,7 @@ export function ProductSpecialization() {
 
             <h2
               data-product-specialization-item
-              className="mt-4 max-w-2xl font-heading text-[clamp(2.6rem,5vw,5rem)] font-semibold leading-[0.93] tracking-[-0.05em]"
+              className="mx-auto mt-4 max-w-2xl font-heading text-[clamp(2.6rem,5vw,5rem)] font-semibold leading-[0.93] tracking-[-0.05em] lg:mx-0"
             >
               Built around
               <br />
@@ -36,7 +36,7 @@ export function ProductSpecialization() {
 
             <p
               data-product-specialization-item
-              className="mt-7 max-w-xl text-base leading-7 text-white/60 md:text-lg md:leading-8"
+              className="mx-auto mt-7 max-w-xl text-base leading-7 text-white/60 md:text-lg md:leading-8 lg:mx-0"
             >
               Specialized transformer tank fabrication for applications where
               the tank geometry, interfaces and fabrication requirements need
@@ -55,13 +55,13 @@ export function ProductSpecialization() {
           </div>
 
           {/* Image */}
-          <div className="order-1 lg:order-2">
+          <div className="order-1 w-full lg:order-2">
             <div
               data-product-specialization-image
               className="relative aspect-[4/3] overflow-hidden bg-[#2c373e]"
             >
               <Image
-                src="/images/products/oltc-transformer-tank.jpg"
+                src="/images/products/oltc.png"
                 alt="OLTC transformer tank"
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
@@ -70,7 +70,7 @@ export function ProductSpecialization() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b2429]/50 to-transparent" />
 
-              <div className="absolute bottom-5 left-5 border border-white/20 bg-[#1b2429]/70 px-4 py-3 backdrop-blur-sm">
+              <div className="absolute bottom-5 left-5 border border-white/20 bg-[#1b2429]/70 px-4 py-3 text-left backdrop-blur-sm">
                 <p className="text-[9px] uppercase tracking-[0.18em] text-white/45">
                   Specialization
                 </p>

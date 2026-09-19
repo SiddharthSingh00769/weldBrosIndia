@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
+
 import { QuoteHero } from "@/components/request-quote/QuoteHero";
 import { QuoteForm } from "@/components/request-quote/QuoteForm";
 import { QuoteProcess } from "@/components/request-quote/QuoteProcess";
-import { QuoteContact } from "@/components/request-quote/QuoteContact";
+
+export const metadata: Metadata = {
+  title: "Request a Quote",
+  description:
+    "Request a quotation from WBRS Industries for transformer tanks and fabricated components. Share your product requirements, specifications, drawings, and project details.",
+  alternates: {
+    canonical: "/request-quote",
+  },    
+};
 
 export default function RequestQuotePage() {
   return (
@@ -9,7 +19,6 @@ export default function RequestQuotePage() {
       <QuoteHero />
       <QuoteForm />
       <QuoteProcess />
-      <QuoteContact />
     </main>
   );
 }

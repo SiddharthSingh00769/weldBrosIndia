@@ -6,7 +6,6 @@ import gsap from "gsap";
 
 import { Container } from "@/components/layout/Container";
 
-
 export function ProductsHero() {
   const scrollToProducts = () => {
     const target = document.getElementById("product-range");
@@ -51,7 +50,6 @@ export function ProductsHero() {
         <div className="absolute inset-y-0 left-[80%] border-l border-white/5" />
 
         <div className="absolute right-16 top-24 h-56 w-56 rounded-full border border-white/10" />
-
         <div className="absolute right-28 top-36 h-32 w-32 rounded-full border border-white/10" />
       </div>
 
@@ -74,8 +72,8 @@ export function ProductsHero() {
         </div>
 
         {/* Main */}
-        <div className="grid gap-12 lg:grid-cols-[1fr_0.7fr] lg:items-end lg:gap-24">
-          <div>
+        <div className="grid gap-12 text-center lg:grid-cols-[1fr_0.7fr] lg:items-end lg:gap-24 lg:text-left">
+          <div className="flex flex-col items-center lg:items-start">
             <p
               data-product-hero-item
               className="mb-5 text-xs uppercase tracking-[0.18em] text-white/45"
@@ -96,7 +94,7 @@ export function ProductsHero() {
 
             <p
               data-product-hero-item
-              className="mt-7 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8"
+              className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8 lg:mx-0"
             >
               Transformer tanks and fabricated components manufactured around
               application requirements, customer drawings and project
@@ -105,12 +103,12 @@ export function ProductsHero() {
 
             <div
               data-product-hero-item
-              className="mt-9 flex flex-col gap-3 sm:flex-row"
+              className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
             >
               <button
                 type="button"
                 onClick={scrollToProducts}
-                className="cursor-pointer group inline-flex h-13 items-center justify-center gap-2 bg-[#f7f7f5] px-6 text-sm font-medium text-[#1b2429] transition-colors duration-300 hover:bg-white"
+                className="group inline-flex h-13 cursor-pointer items-center justify-center gap-2 bg-[#f7f7f5] px-6 text-sm font-medium text-[#1b2429] transition-colors duration-300 hover:bg-white"
               >
                 Explore Products
 
@@ -153,7 +151,7 @@ export function ProductsHero() {
         </div>
 
         {/* Bottom */}
-        <div className="flex items-center justify-between border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.16em] text-white/35 sm:text-xs">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-5 text-center text-[10px] uppercase tracking-[0.16em] text-white/35 sm:flex-row sm:text-left sm:text-xs">
           <span>Jaipur / Rajasthan / India</span>
 
           <span>Engineering &amp; Fabrication</span>

@@ -3,54 +3,59 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Quote } from "lucide-react";
 
 import { Container } from "@/components/layout/Container";
 
 const stats = [
   {
-    value: "20XX",
+    target: 2021,
     label: "Established",
+    suffix: "",
+    format: "year",
   },
   {
-    value: "XXX+",
+    target: 300,
     label: "Projects Completed",
+    suffix: "+",
+    format: "number",
   },
   {
-    value: "10 kVA–5 MVA",
+    target: 5,
     label: "Manufacturing Range",
+    prefix: "500 kVA–",
+    suffix: " MVA",
+    format: "number",
   },
   {
-    value: "Jaipur",
-    label: "Rajasthan, India",
+    target: 2,
+    label: "Manufacturing Locations",
+    suffix: "",
+    format: "number",
   },
 ];
 
 const testimonials = [
   {
     id: "client-01",
-    image: "/images/about/client-01.jpg",
+    image: "/images/about/sudarshan.png",
     quote:
-      "Client review will be added here once the approved testimonial is provided.",
-    name: "Client Name",
-    company: "Company Name",
+      "The small transformer tanks, power transformers, and On-Load Tap Changers (OLTC) deliver exceptional build quality, robust thermal efficiency, and precise voltage regulation, ensuring seamless operation, maximum durability, and long-term reliability under heavy electrical loads.",
+    company: "Sudarshan Transformers",
   },
   {
     id: "client-02",
-    image: "/images/about/client-02.jpg",
+    image: "/images/about/united.png",
     quote:
-      "Client review will be added here once the approved testimonial is provided.",
-    name: "Client Name",
-    company: "Company Name",
+      "The On-Load Tap Changer (OLTC) offers exceptional precision and seamless voltage regulation, delivering reliable switching performance, minimal downtime, and long-term durability under demanding operating conditions.",
+    company: "United Transformers",
   },
   {
     id: "client-03",
-    image: "/images/about/client-03.jpg",
+    image: "/images/about/hd.webp",
     quote:
-      "Client review will be added here once the approved testimonial is provided.",
-    name: "Client Name",
-    company: "Company Name",
+      "Engineered to high standards, the combination of small transformer tanks, power transformers, and On-Load Tap Changers (OLTC) provides outstanding structural integrity, top-tier energy transmission, and effortless voltage control, resulting in superior grid performance and extended service life.",
+    company: "HD Transformers",
   },
 ];
 
@@ -59,31 +64,70 @@ export function AboutIntro() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      /* Section Fade-Up Animation */
       const items = sectionRef.current?.querySelectorAll(
         "[data-intro-fade]",
       );
 
-      if (!items?.length) return;
+      if (items?.length) {
+        gsap.fromTo(
+          items,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 78%",
+              once: true,
+            },
+          },
+        );
+      }
 
-      gsap.fromTo(
-        items,
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: "power3.out",
+      /* Animated Statistics */
+      const statNumbers =
+        sectionRef.current?.querySelectorAll<HTMLElement>(
+          "[data-stat-number]",
+        );
+
+      if (!statNumbers?.length) return;
+
+      statNumbers.forEach((element) => {
+        const target = Number(element.dataset.target);
+        const format = element.dataset.format;
+
+        if (!Number.isFinite(target)) return;
+
+        const counter = { value: 0 };
+
+        gsap.to(counter, {
+          value: target,
+          duration: 1.8,
+          ease: "power2.out",
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 78%",
+            trigger: element,
+            start: "top 88%",
             once: true,
           },
-        },
-      );
+          onUpdate: () => {
+            const value = Math.round(counter.value);
+
+            if (format === "year") {
+              // Years should never use thousands separators.
+              element.textContent = String(value);
+            } else {
+              element.textContent = value.toLocaleString();
+            }
+          },
+        });
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -120,8 +164,11 @@ export function AboutIntro() {
               </p>
 
               <p>
-                Established in <strong className="font-semibold text-[#17212b]">20XX</strong>,
-                the company has developed its manufacturing focus around
+                Established{" "}
+                <strong className="font-semibold text-[#17212b]">
+                  2021
+                </strong>
+                , the company has developed its manufacturing focus around
                 transformer tanks and related fabricated components for
                 customer-specific requirements.
               </p>
@@ -142,11 +189,23 @@ export function AboutIntro() {
               key={stat.label}
               data-intro-fade
               className={`px-5 py-8 text-center sm:px-6 lg:py-10 ${
-                index > 0 ? "border-t border-[#dde2e6] sm:border-l sm:border-t-0" : ""
+                index > 0
+                  ? "border-t border-[#dde2e6] sm:border-l sm:border-t-0"
+                  : ""
               }`}
             >
               <p className="font-heading text-[clamp(1.6rem,3vw,2.5rem)] font-semibold leading-none tracking-[-0.04em] text-[#17212b]">
-                {stat.value}
+                {stat.prefix}
+
+                <span
+                  data-stat-number
+                  data-target={stat.target}
+                  data-format={stat.format}
+                >
+                  0
+                </span>
+
+                {stat.suffix}
               </p>
 
               <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.16em] text-[#7b858d]">
@@ -158,10 +217,7 @@ export function AboutIntro() {
 
         {/* Client Testimonials */}
         <div className="pt-20 md:pt-28 lg:pt-32">
-          <div
-            data-intro-fade
-            className="mx-auto max-w-3xl text-center"
-          >
+          <div data-intro-fade className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#075a9c]">
               Client Experiences
             </p>
@@ -171,7 +227,7 @@ export function AboutIntro() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#5f6b75]">
-              Hear directly from the people and organizations we work with.
+              Hear directly from the organizations we work with.
             </p>
           </div>
 
@@ -182,22 +238,19 @@ export function AboutIntro() {
                 data-intro-fade
                 className="group overflow-hidden border border-[#dde2e6] bg-white"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#172a3a]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#eef1f3]">
                   <Image
                     src={testimonial.image}
-                    alt={`${testimonial.name} from ${testimonial.company}`}
+                    alt={testimonial.company}
                     fill
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c]/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c]/60 via-transparent to-transparent" />
 
                   <div className="absolute bottom-5 left-5">
                     <p className="text-xs font-medium text-white">
-                      {testimonial.name}
-                    </p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-white/60">
                       {testimonial.company}
                     </p>
                   </div>
@@ -212,11 +265,11 @@ export function AboutIntro() {
 
                   <div className="mt-6 border-t border-[#dde2e6] pt-5">
                     <p className="font-heading text-sm font-semibold text-[#17212b]">
-                      {testimonial.name}
+                      {testimonial.company}
                     </p>
 
                     <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#7b858d]">
-                      {testimonial.company}
+                      Client
                     </p>
                   </div>
                 </div>

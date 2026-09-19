@@ -11,7 +11,7 @@ export function ProductRange() {
     >
       <Container>
         {/* Section heading */}
-        <div className="grid gap-8 border-b border-[#dde2e6] pb-10 md:grid-cols-[0.7fr_1.3fr] md:gap-16 md:pb-14">
+        <div className="grid gap-8 border-b border-[#dde2e6] pb-10 text-center md:grid-cols-[0.7fr_1.3fr] md:gap-16 md:pb-14 md:text-left">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#075a9c]">
               Product Range
@@ -23,12 +23,12 @@ export function ProductRange() {
           </div>
 
           <div>
-            <h2 className="max-w-4xl font-heading text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#17212b]">
+            <h2 className="mx-auto max-w-4xl font-heading text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#17212b] md:mx-0">
               Transformer tanks and fabricated components for varied
               applications.
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[#5f6b75] md:text-lg md:leading-8">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#5f6b75] md:mx-0 md:text-lg md:leading-8">
               Explore our range of fabricated transformer products,
               manufactured around capacity requirements and application needs.
             </p>

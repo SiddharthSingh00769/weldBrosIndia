@@ -22,27 +22,27 @@ export function CustomFabrication() {
   return (
     <section className="bg-[#eef0f0] py-24 md:py-32 lg:py-40">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+        <div className="grid gap-12 text-center lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:text-left">
           {/* Intro */}
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#245a78]">
               Custom Fabrication
             </p>
 
-            <h2 className="mt-5 max-w-xl font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-[#172026]">
+            <h2 className="mx-auto mt-5 max-w-xl font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-[#172026] lg:mx-0">
               Your drawing.
               <br />
               Our fabrication.
             </h2>
 
-            <p className="mt-6 max-w-lg text-base leading-7 text-[#647078]">
+            <p className="mx-auto mt-6 max-w-lg text-base leading-7 text-[#647078] lg:mx-0">
               When the requirement is specific, the manufacturing process needs
               to be equally specific.
             </p>
           </div>
 
           {/* Steps */}
-          <div className="border-t border-[#cfd5d6]">
+          <div className="border-t border-[#cfd5d6] text-left">
             {steps.map((step) => (
               <div
                 key={step.number}

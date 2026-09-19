@@ -5,6 +5,7 @@ import { ArrowUpRight, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import {
   Sheet,
@@ -12,20 +13,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const darkNavbarRoutes = [
-  "/products",
-  "/manufacturing",
-  "/about",
-  "/request-quote",
-];
-
 export function Navbar() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isDarkNavbar = darkNavbarRoutes.some(
-    (route) =>
-      pathname === route || pathname.startsWith(`${route}/`),
-  );
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -51,15 +45,36 @@ export function Navbar() {
           aria-label="Main navigation"
           className="ml-auto hidden items-center gap-7 lg:flex xl:gap-9"
         >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative py-2 text-sm font-medium text-white/85 transition-colors duration-300 hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative py-2 text-sm font-medium transition-colors duration-300 ${
+                  isActive ? "text-white" : "text-white/85 hover:text-white"
+                }`}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#f05a18]" />
+                )}
+              </Link>
+            );
+          })}
+
+          {/* Contact Us */}
+          <Link
+            href="/contact"
+            className={`relative py-2 text-sm font-medium transition-colors duration-300 ${
+              pathname === "/contact" ? "text-white" : "text-white/85 hover:text-white"
+            }`}
+          >
+            Contact Us
+            {pathname === "/contact" && (
+              <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#f05a18]" />
+            )}
+          </Link>
 
           {/* Request Quote */}
           <Link
@@ -74,7 +89,10 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         <div className="ml-auto lg:hidden">
-          <Sheet>
+          <Sheet
+            open={mobileMenuOpen}
+            onOpenChange={setMobileMenuOpen}
+          >
             <SheetTrigger
               render={
                 <button
@@ -85,6 +103,7 @@ export function Navbar() {
               }
             >
               <Menu className="size-5" />
+
               <span className="sr-only">
                 Open navigation menu
               </span>
@@ -101,6 +120,7 @@ export function Navbar() {
                   href="/"
                   aria-label="WBRS Industries home"
                   className="inline-flex"
+                  onClick={handleMobileLinkClick}
                 >
                   <Image
                     src="/images/brand/lastLogo.png"
@@ -117,21 +137,39 @@ export function Navbar() {
                 aria-label="Mobile navigation"
                 className="flex flex-col border-t border-border"
               >
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="flex min-h-14 items-center border-b border-border px-6 text-[15px] font-medium text-foreground transition-colors duration-200 hover:bg-muted hover:text-primary sm:px-7"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={handleMobileLinkClick}
+                      className={`flex min-h-14 items-center border-b border-border px-6 text-[15px] font-medium transition-colors duration-200 sm:px-7 ${
+                        isActive ? "bg-muted text-[#f05a18]" : "text-foreground hover:bg-muted hover:text-primary"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+
+                {/* Contact Us */}
+                <Link
+                  href="/contact"
+                  onClick={handleMobileLinkClick}
+                  className={`flex min-h-14 items-center border-b border-border px-6 text-[15px] font-medium transition-colors duration-200 sm:px-7 ${
+                    pathname === "/contact" ? "bg-muted text-[#f05a18]" : "text-foreground hover:bg-muted hover:text-primary"
+                  }`}
+                >
+                  Contact Us
+                </Link>
               </nav>
 
               {/* Mobile CTA */}
               <div className="px-6 pt-8 sm:px-7">
                 <Link
                   href="/request-quote"
+                  onClick={handleMobileLinkClick}
                   className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#f05a18] px-5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#d94a12]"
                 >
                   Request a Quote

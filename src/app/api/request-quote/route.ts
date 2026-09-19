@@ -18,13 +18,9 @@ export async function POST(request: Request) {
       quantity: String(formData.get("quantity") || ""),
       capacity: String(formData.get("capacity") || ""),
       application: String(formData.get("application") || ""),
-      deliveryLocation: String(
-        formData.get("deliveryLocation") || "",
-      ),
+      deliveryLocation: String(formData.get("deliveryLocation") || ""),
       dimensions: String(formData.get("dimensions") || ""),
-      requirements: String(
-        formData.get("requirements") || "",
-      ),
+      requirements: String(formData.get("requirements") || ""),
       message: String(formData.get("message") || ""),
     };
 
@@ -46,6 +42,40 @@ export async function POST(request: Request) {
 
     const document = formData.get("document");
 
+    // Server-side file validation
+    const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+    const ALLOWED_FILE_TYPES = [
+      "application/pdf",
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.ms-excel",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    if (document instanceof File && document.size > 0) {
+      if (document.size > MAX_FILE_SIZE) {
+        return NextResponse.json(
+          {
+            message: "The uploaded file must be 10 MB or smaller.",
+          },
+          { status: 400 },
+        );
+      }
+
+      if (!ALLOWED_FILE_TYPES.includes(document.type)) {
+        return NextResponse.json(
+          {
+            message: "This file type is not supported.",
+          },
+          { status: 400 },
+        );
+      }
+    }
+
     const attachments =
       document instanceof File && document.size > 0
         ? [
@@ -56,7 +86,7 @@ export async function POST(request: Request) {
           ]
         : undefined;
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from:
         process.env.RESEND_FROM_EMAIL ||
         "WBRS Industries <onboarding@resend.dev>",
@@ -72,92 +102,62 @@ export async function POST(request: Request) {
       attachments,
 
       html: `
-        <div style="font-family: Arial, sans-serif; color: #17212b; max-width: 700px;">
-          <h2 style="margin-bottom: 24px;">
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #17212B;">
+          <h2 style="color: #101C2C;">
             New Quote Request
           </h2>
 
-          <h3>Contact Information</h3>
+          <p>
+            A new quote request has been submitted through the WBRS Industries website.
+          </p>
+
+          <hr />
+
+          <h3>Contact Details</h3>
 
           <p>
-            <strong>Name:</strong>
-            ${escapeHtml(values.name)}
+            <strong>Name:</strong> ${escapeHtml(values.name)}<br />
+            <strong>Company:</strong> ${escapeHtml(values.company)}<br />
+            <strong>Email:</strong> ${escapeHtml(values.email)}<br />
+            <strong>Phone:</strong> ${escapeHtml(values.phone)}
+          </p>
+
+          <h3>Requirement</h3>
+
+          <p>
+            <strong>Product:</strong> ${escapeHtml(values.product)}<br />
+            <strong>Quantity:</strong> ${escapeHtml(values.quantity)}<br />
+            <strong>Capacity:</strong> ${escapeHtml(values.capacity)}<br />
+            <strong>Application:</strong> ${escapeHtml(values.application)}
+          </p>
+
+          <h3>Project Details</h3>
+
+          <p>
+            <strong>Delivery Location:</strong><br />
+            ${formatMultiline(values.deliveryLocation)}
           </p>
 
           <p>
-            <strong>Company:</strong>
-            ${escapeHtml(values.company)}
+            <strong>Dimensions:</strong><br />
+            ${formatMultiline(values.dimensions)}
           </p>
 
           <p>
-            <strong>Email:</strong>
-            ${escapeHtml(values.email)}
+            <strong>Requirements:</strong><br />
+            ${formatMultiline(values.requirements)}
           </p>
 
           <p>
-            <strong>Phone:</strong>
-            ${escapeHtml(values.phone)}
-          </p>
-
-          <h3 style="margin-top: 28px;">
-            Requirement
-          </h3>
-
-          <p>
-            <strong>Product:</strong>
-            ${escapeHtml(values.product)}
-          </p>
-
-          <p>
-            <strong>Quantity:</strong>
-            ${escapeHtml(values.quantity || "Not specified")}
-          </p>
-
-          <p>
-            <strong>Capacity / Rating:</strong>
-            ${escapeHtml(values.capacity || "Not specified")}
-          </p>
-
-          <p>
-            <strong>Application:</strong>
-            ${escapeHtml(values.application || "Not specified")}
-          </p>
-
-          <p>
-            <strong>Delivery Location:</strong>
-            ${escapeHtml(
-              values.deliveryLocation || "Not specified",
-            )}
-          </p>
-
-          <h3 style="margin-top: 28px;">
-            Technical Information
-          </h3>
-
-          <p>
-            <strong>Dimensions / Configuration:</strong><br />
-            ${formatMultiline(
-              values.dimensions || "Not specified",
-            )}
-          </p>
-
-          <p>
-            <strong>Additional Requirements:</strong><br />
-            ${formatMultiline(
-              values.requirements || "Not specified",
-            )}
-          </p>
-
-          <p>
-            <strong>Message / Notes:</strong><br />
-            ${formatMultiline(
-              values.message || "Not specified",
-            )}
+            <strong>Additional Message:</strong><br />
+            ${formatMultiline(values.message)}
           </p>
 
           ${
             document instanceof File && document.size > 0
               ? `
+                <hr />
+
                 <p>
                   <strong>Attachment:</strong>
                   ${escapeHtml(document.name)}
@@ -166,20 +166,26 @@ export async function POST(request: Request) {
               : ""
           }
 
-          <hr
-            style="
-              margin-top: 32px;
-              border: 0;
-              border-top: 1px solid #dde2e6;
-            "
-          />
+          <hr />
 
-          <p style="font-size: 12px; color: #7b858d;">
-            Submitted through the WBRS Industries website.
+          <p style="font-size: 12px; color: #5F6B75;">
+            This enquiry was submitted through weldbrosindia.com.
           </p>
         </div>
       `,
     });
+
+    if (error) {
+      console.error("Resend quote error:", error);
+
+      return NextResponse.json(
+        {
+          message:
+            "We could not submit your request right now. Please try again or contact us directly.",
+        },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json({
       success: true,
@@ -198,8 +204,8 @@ export async function POST(request: Request) {
   }
 }
 
-function escapeHtml(value: string) {
-  return value
+function escapeHtml(value: string | undefined) {
+  return (value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -207,6 +213,6 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#039;");
 }
 
-function formatMultiline(value: string) {
+function formatMultiline(value: string | undefined) {
   return escapeHtml(value).replaceAll("\n", "<br />");
 }

@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Container } from "@/components/layout/Container";
 
@@ -56,7 +55,7 @@ export function AboutLocation() {
             className="relative aspect-[4/3] overflow-hidden bg-[#172a3a] lg:aspect-[1.08/1]"
           >
             <Image
-              src="/images/about/about-location.jpg"
+              src="/images/about/gate.jpeg"
               alt="WBRS Industries facility in Jaipur, Rajasthan"
               fill
               sizes="(max-width: 1023px) 100vw, 52vw"
@@ -125,7 +124,7 @@ export function AboutLocation() {
                   </p>
 
                   <p className="mt-1 font-heading text-sm font-semibold text-[#17212b]">
-                    Jaipur, Rajasthan, India
+                    Harmada, Sikar Road Near Vishwakarma Industrial Area (VKI Area) Jaipur, Rajasthan – 302013, India
                   </p>
                 </div>
               </div>

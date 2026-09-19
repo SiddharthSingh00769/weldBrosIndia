@@ -7,8 +7,6 @@ import { Container } from "./Container";
 const navigation = [
   { label: "Products", href: "/products" },
   { label: "Manufacturing", href: "/manufacturing" },
-  { label: "Applications", href: "/applications" },
-  { label: "Quality", href: "/quality" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -86,9 +84,9 @@ export function Footer() {
                 <MapPin className="mt-0.5 size-4 shrink-0 text-[#7b858d]" />
 
                 <p className="text-sm leading-6 text-white/60">
-                  Jaipur,
+                  Harmada, Sikar Road Near Vishwakarma Industrial Area (VKI Area)
                   <br />
-                  Rajasthan, India
+                  Jaipur, Rajasthan – 302013, India
                 </p>
               </div>
 
@@ -176,22 +174,6 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} WBRS Industries. All rights reserved.
           </p>
-
-          <div className="flex gap-6">
-            <Link
-              href="/privacy"
-              className="transition-colors hover:text-white/60"
-            >
-              Privacy
-            </Link>
-
-            <Link
-              href="/terms"
-              className="transition-colors hover:text-white/60"
-            >
-              Terms
-            </Link>
-          </div>
         </div>
       </Container>
     </footer>

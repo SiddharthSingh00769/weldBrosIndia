@@ -11,7 +11,7 @@ const processes = [
     number: "01",
     title: "Sheet Cutting",
     description:
-      "Material is cut to the required dimensions before moving into the fabrication stage.",
+      "Sheet Cutting is the first step in manufacturing transformer tanks, where large metal plates are sliced into precise sizes using heavy cutting machinery. This prepares the flat steel pieces needed to build the outer walls, frame, and covers of the transformer enclosures.",
     image: "/images/manufacturing/sheetCutting.png",
     images: ["/images/manufacturing/sheetCutting.png", "/images/manufacturing/sheetCutting1.png"]
   },
@@ -19,7 +19,7 @@ const processes = [
     number: "02",
     title: "Power Press",
     description:
-      "Sheets and components are formed according to the required shape and configuration.",
+      "Power Press is a heavy manufacturing process where industrial press machines use high force to bend, punch, or shape the cut metal sheets. It creates exact holes, curves, and structural forms needed for assembling transformer tank components like brackets, covers, and panels.",
     image: "/images/manufacturing/powerPress.png",
 
   },
@@ -27,14 +27,14 @@ const processes = [
     number: "03",
     title: "Bending and Folding",
     description:
-      "Fabricated components are joined through controlled welding operations.",
+      "Bending and Folding is the step where flat metal sheets are shaped into precise angles and sides using heavy bending machines. This transforms flat steel into the 3D walls, corners, and structural panels needed to assemble the transformer tank.",
     image: "/images/manufacturing/Bending.png",
   },
   {
     number: "04",
     title: "Welding",
     description:
-      "Welded surfaces and fabricated components are finished and prepared for the next stage.",
+      "**Welding** is the stage where skilled workers permanently join the bent steel plates, frames, and fittings together using intense heat. This creates a strong, leak-proof structure that ensures the transformer tank can safely hold insulating oil without any spills or cracks.",
     image: "/images/manufacturing/welding1.png",
     images: ["/images/manufacturing/welding1.png", "/images/manufacturing/welding2.png"],
   },
@@ -42,7 +42,7 @@ const processes = [
     number: "05",
     title: "Assembling",
     description:
-      "Individual fabricated components are assembled into the required finished configuration.",
+      "**Assembling** is the stage where all individual parts—including welded walls, flanges, frames, and fittings—are brought together and fitted into place. Technicians align and attach each component to build the complete, final structure of the transformer tank before it undergoes testing and finishing.",
     image: "/images/manufacturing/assembling.png",
     images: ["/images/manufacturing/assembling.png", "/images/manufacturing/assembling1.png"]
   },
@@ -50,22 +50,22 @@ const processes = [
     number: "06",
     title: "Grinding",
     description:
-      "Finished fabrication is inspected against the applicable drawings and requirements.",
+      "**Grinding** is the finishing stage where workers use power tools to smooth down rough weld seams, sharp edges, and metal burrs on the assembled tank. This cleans up the steel surface so it is completely smooth and safe to handle, while preparing the metal for painting and protective coating.",
     image: "/images/manufacturing/grinding.png",
   },
   {
     number: "07",
     title: "Drilling",
     description:
-      "Finished fabrication is inspected against the applicable drawings and requirements.",
+      "**Drilling** is the machining step where industrial drill presses create precise holes in metal plates, flanges, and frames. These accurate holes are essential for inserting bolts, securing accessories, and connecting external components to the transformer tank.",
     image: "/images/manufacturing/drilling.png",
   },
   {
     number: "08",
     title: "Finishing",
     description:
-      "Finished fabrication is inspected against the applicable drawings and requirements.",
-    image: "/images/manufacturing/inspection.jpg",
+      "This finishing process involves meticulous surface grinding and weld cleaning on the transformer tank frame. By smoothing out weld seams, removing spatter, and preparing the metal surface, it ensures high structural integrity, prevents corrosion, and guarantees a clean, leak-proof seal before final coating.",
+    image: "/images/manufacturing/finishing.png",
   },
 ];
 
