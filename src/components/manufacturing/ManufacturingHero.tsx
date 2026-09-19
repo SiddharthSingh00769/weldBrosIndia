@@ -155,7 +155,16 @@ export function ManufacturingHero() {
       </div>
 
       {/* Content */}
-      <Container className="relative z-10 flex h-full w-full flex-col justify-end pb-8 pt-28 sm:pb-10 sm:pt-32 lg:pb-12 xl:pb-14">
+      <Container
+        className="
+          relative z-10 flex h-full w-full flex-col
+          justify-center
+          pt-24 pb-8
+          sm:pt-28 sm:pb-10
+          lg:justify-end lg:pb-12
+          xl:pb-14
+        "
+      >
         <div
           ref={contentRef}
           className="mx-auto w-full max-w-4xl text-center md:mx-0 md:text-left"

@@ -241,11 +241,11 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.name}
           </h3>
 
-          <p className="mt-3 max-w-sm text-sm leading-6 text-white/75">
+          <p className="mt-3 max-w-[88%] text-sm leading-6 text-white/75 xl:max-w-[92%]">
             {product.shortDescription}
           </p>
 
-          <div className="mt-5 flex items-center justify-between border-t border-white/15 pt-4">
+          <div className="mt-5 flex max-w-[92%] items-center justify-between border-t border-white/15 pt-4">
             <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/55">
               {product.range}
             </span>

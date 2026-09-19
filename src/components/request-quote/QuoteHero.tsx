@@ -149,11 +149,21 @@ export function QuoteHero() {
       </div>
 
       {/* Content */}
-      <Container className="relative z-10 flex h-full w-full flex-col justify-end pb-8 pt-28 sm:pb-10 sm:pt-32 lg:pb-12 xl:pb-14">
+      <Container
+        className="
+          relative z-10 flex h-full w-full flex-col
+          justify-center
+          pt-24 pb-8
+          sm:pt-28 sm:pb-10
+          lg:justify-end lg:pb-12
+          xl:pb-14
+        "
+      >
         <div
           ref={contentRef}
           className="mx-auto w-full max-w-4xl text-center md:mx-0 md:text-left"
         >
+          {/* Eyebrow */}
           <p
             data-quote-hero-fade
             className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#7dd3fc] sm:text-xs"
@@ -161,6 +171,7 @@ export function QuoteHero() {
             Request a Quote
           </p>
 
+          {/* Section Number */}
           <p
             data-quote-hero-fade
             className="mt-5 font-heading text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:text-xs"
@@ -168,6 +179,7 @@ export function QuoteHero() {
             01 / Enquiry
           </p>
 
+          {/* Heading */}
           <h1
             data-quote-hero-fade
             className="mt-4 max-w-4xl font-heading text-[clamp(3rem,6vw,5.75rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white drop-shadow-2xl"
@@ -177,6 +189,7 @@ export function QuoteHero() {
             <span className="text-white/85">need to build.</span>
           </h1>
 
+          {/* Description */}
           <p
             data-quote-hero-fade
             className="mx-auto mt-6 max-w-2xl text-sm leading-6 text-slate-200/85 sm:text-base sm:leading-7 md:mx-0 md:text-lg md:leading-8"
@@ -186,6 +199,7 @@ export function QuoteHero() {
             accurate response.
           </p>
 
+          {/* CTA Buttons */}
           <div
             data-quote-hero-fade
             className="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:justify-start"

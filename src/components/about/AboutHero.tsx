@@ -155,11 +155,21 @@ export function AboutHero() {
       </div>
 
       {/* Content */}
-      <Container className="relative z-10 flex h-full w-full flex-col justify-end pb-8 pt-28 sm:pb-10 sm:pt-32 lg:pb-12 xl:pb-14">
+      <Container
+        className="
+          relative z-10 flex h-full w-full flex-col
+          justify-center
+          pt-24 pb-8
+          sm:pt-28 sm:pb-10
+          lg:justify-end lg:pb-12
+          xl:pb-14
+        "
+      >
         <div
           ref={contentRef}
           className="mx-auto w-full max-w-4xl text-center md:mx-0 md:text-left"
         >
+          {/* Eyebrow */}
           <p
             data-about-hero-fade
             className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#7dd3fc] sm:text-xs"
@@ -167,6 +177,7 @@ export function AboutHero() {
             About WBRS Industries
           </p>
 
+          {/* Section Number */}
           <p
             data-about-hero-fade
             className="mt-5 font-heading text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:text-xs"
@@ -174,6 +185,7 @@ export function AboutHero() {
             01 / Company
           </p>
 
+          {/* Heading */}
           <h1
             data-about-hero-fade
             className="mt-4 max-w-4xl font-heading text-[clamp(3rem,6vw,5.75rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white drop-shadow-2xl"
@@ -185,6 +197,7 @@ export function AboutHero() {
             </span>
           </h1>
 
+          {/* Description */}
           <p
             data-about-hero-fade
             className="mx-auto mt-6 max-w-2xl text-sm leading-6 text-slate-200/85 sm:text-base sm:leading-7 md:mx-0 md:text-lg md:leading-8"
@@ -193,6 +206,7 @@ export function AboutHero() {
             fabricated components built around customer requirements.
           </p>
 
+          {/* CTA Buttons */}
           <div
             data-about-hero-fade
             className="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:justify-start"
