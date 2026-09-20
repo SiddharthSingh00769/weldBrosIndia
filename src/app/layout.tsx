@@ -18,8 +18,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const baseUrl = "https://www.weldbrosindia.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://weldbrosindia.com"),
+  metadataBase: new URL(baseUrl),
 
   title: {
     default: "WBRS Industries | Transformer Tanks & Power Solutions",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://weldbrosindia.com",
+    url: baseUrl,
     siteName: "WBRS Industries",
     title: "WBRS Industries | Transformer Tanks & Power Solutions",
     description:
@@ -73,8 +75,8 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "WBRS Industries",
-  url: "https://weldbrosindia.com",
-  logo: "https://weldbrosindia.com/images/brand/lastLogo.png",
+  url: baseUrl,
+  logo: `${baseUrl}/images/brand/lastLogo.png`,
   description:
     "WBRS Industries manufactures transformer tanks and fabricated components for power and industrial applications.",
   email: "weldbrosindia@gmail.com",
@@ -94,8 +96,8 @@ const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "WBRS Industries",
-  url: "https://weldbrosindia.com",
-  image: "https://weldbrosindia.com/images/products/powerTransformer.png",
+  url: baseUrl,
+  image: `${baseUrl}/images/products/powerTransformer.png`,
   email: "weldbrosindia@gmail.com",
   telephone: "+91 8955182334",
   address: {
@@ -122,7 +124,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "WBRS Industries",
-  url: "https://weldbrosindia.com",
+  url: baseUrl,
 };
 
 export default function RootLayout({

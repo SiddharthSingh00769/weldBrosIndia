@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://weldbrosindia.com";
+const baseUrl = "https://www.weldbrosindia.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
