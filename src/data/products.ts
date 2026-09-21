@@ -50,6 +50,14 @@ export const products: Product[] = [
   {
     id: 5,
     number: "05",
+    name: "Small Transformer Tanks",
+    range: "10 kVA-100 kVA",
+    image: "/images/products/smallTransformer.png",
+    shortDescription: "This is a small transformer tank designed to house and protect the active components of a transformer while providing a sealed enclosure for transformer oil and facilitating heat dissipation during operation. It is suitable for distribution and small-capacity power transformers used in electrical power distribution and industrial applications. The tank can be customized in terms of capacity/range, dimensions, radiator configuration, and other specifications as per the client’s requirements.",
+  },
+  {
+    id: 6,
+    number: "06",
     name: "LT Boxes",
     range: "10 kVA–350 kVA",
     image: "/images/products/ltBox.png",
@@ -57,8 +65,8 @@ export const products: Product[] = [
       "An LT Box (Low Tension Box, rated for 10 kVA to 350 kVA) is a protective metal cover for a transformer's low-voltage wiring. It safely seals off the electrical connections so people cannot accidentally touch live wires, while also keeping out rain and dirt.",
   },
   {
-    id: 6,
-    number: "06",
+    id: 7,
+    number: "07",
     name: "HT Boxes",
     range: "10 kVA–350 kVA",
     image: "/images/products/htBox.png",
@@ -66,8 +74,8 @@ export const products: Product[] = [
       "An HT Box (High Tension Box, rated for 10 kVA to 350 kVA) is a protective metal cover for a transformer's high-voltage connections. It safely seals off the dangerous, high-power wires coming into the transformer to prevent electrical accidents, while protecting the terminals from weather and dirt.",
   },
   {
-    id: 7,
-    number: "07",
+    id: 8,
+    number: "08",
     name: "Meter Boxes",
     range: "10 kVA–350 kVA",
     image: "/images/products/meterBox.png",
@@ -75,8 +83,8 @@ export const products: Product[] = [
       "A Meter Box (rated for 10 kVA to 350 kVA) is a protective metal cabinet housing the electrical meters and monitoring devices for a transformer. It safely encloses meters and internal wiring to shield them from rain, dust, and tampering, while providing clear viewing windows for technicians to take power readings safely.",
   },
   {
-    id: 8,
-    number: "08",
+    id: 9,
+    number: "09",
     name: "Radiator",
     range: "Specifications to be announced",
     image: "/images/products/radiator.png",
